@@ -10,7 +10,7 @@ function findSearch() {
 
 function getMovies(searchParameter) {
 
-    const url = `https://www.omdbapi.com/?apikey=8e736192&s=${encodeURIComponent(searchParameter)}`;
+    const url = `http://www.omdbapi.com/?apikey=8e736192&s=${encodeURIComponent(searchParameter)}`;
 
     fetch(url)
     .then(res => res.json())
@@ -75,16 +75,40 @@ listContainer.addEventListener("click", function (event) {
 function addToWatchlist(movieId) {
     let watchlist = getWatchlistFromStorage();
     if (watchlist.includes(movieId)) {
-        alert("Movie is already in the watchlist.");
+        popup("Movie is already in the watchlist.");//switch from alert to popup function
         return;
     }
 
     watchlist.push(movieId);
     localStorage.setItem("watchlist", JSON.stringify(watchlist));
-    alert("Movie added to watchlist.");
+    popup("Movie added to watchlist.");//switch from alert to popup function
 }
 
 function getWatchlistFromStorage() {
     const watchlistData = localStorage.getItem("watchlist");
     return watchlistData ? JSON.parse(watchlistData) : [];
 }
+
+// alert function popup control
+const alerts = document.querySelector('.alert');
+const messageInput = document.querySelector('.msg');
+const closeBtn = document.querySelector('.close-btn');
+
+function popup(message) {
+    alerts.classList.remove('hide');
+    alerts.classList.add('show');
+    alerts.classList.add('showAlert');
+    messageInput.textContent = `${message}`
+    setTimeout( ()=> {
+        closeMsg();
+    }, 5000); //hides alert after 5 secs
+}
+
+function closeMsg() {
+    alerts.classList.add('hide');
+    alerts.classList.remove('show');
+}
+
+closeBtn.addEventListener("click", closeMsg);
+
+

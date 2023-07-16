@@ -68,7 +68,32 @@ document.addEventListener("DOMContentLoaded", function () {
       if (index !== -1) {
         watchlist.splice(index, 1);
         localStorage.setItem("watchlist", JSON.stringify(watchlist));
-        alert("Movie removed from watchlist.");
+        popup("Movie removed from watchlist.");
       }
     }
   });
+
+  //alert popup control
+
+const alerts = document.querySelector('.alert');
+const messageInput = document.querySelector('.msg');
+const closeBtn = document.querySelector('.close-btn');
+
+function popup(message) {
+    alerts.classList.remove('hide');
+    alerts.classList.add('show');
+    alerts.classList.add('showAlert');
+    messageInput.textContent = `${message}`
+    setTimeout( ()=> {
+        closeMsg();
+    }, 5000); //hides alert after 5 secs
+}
+
+function closeMsg() {
+    alerts.classList.add('hide');
+    alerts.classList.remove('show');
+}
+
+closeBtn.addEventListener("click", closeMsg);
+
+

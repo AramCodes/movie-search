@@ -10,6 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .container {
@@ -19,6 +20,7 @@ body {
     max-height: 1355px;
     background: #121212;
     overflow: hidden;
+    
 }
 
 .hero {
@@ -212,4 +214,103 @@ i {
     line-height: 20px;
     margin-top: 8px;
     margin-left: 6px;
+}
+
+/*Alert and warning popups*/
+
+.alert {
+    background-color: #ffdb9b;
+    padding: 20px 40px;
+    min-width: 420px;
+    position: absolute;
+    right: 770px;
+    top: 130px;
+    border-radius: 4px;
+    border-left: 8px solid #ffa502;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.alert.showAlert {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.alert.show {
+    animation: show_slide 1s ease forwards;
+}
+
+@keyframes show_slide {
+    0% {
+        transform: translateX(100%);
+    }
+    40% {
+        transform: translateX(-10%);
+    }
+    80% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-10%);
+    }
+}
+
+.alert.hide{
+    display: none;
+}
+
+.alert.hide{
+    animation: hide_slide 1s ease forwards;
+}
+
+@keyframes hide_slide {
+    0% {
+        transform: translateX(-10%);
+    }
+    40% {
+        transform: translateX(0%);
+    }
+    80% {
+        transform: translateX(-10%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.alert .fa-exclamation-circle {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ce8500;
+    font-size: 20px;
+}
+
+.alert .msg {
+    padding: 0 10px;
+    font-size: 16px;
+    color: #ce8500;
+}
+
+.alert .close-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ffd080;
+    padding: 20px 13px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background-color: #ffc766;
+}
+
+.close-btn .fa-times {
+    color: #ce8500;
+    font-size: 18px;
+    line-height: 40px;
 }
