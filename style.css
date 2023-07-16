@@ -314,3 +314,15 @@ i {
     font-size: 18px;
     line-height: 40px;
 }
+
+@media  (max-width: 1050px) {
+
+   .container {
+        position:relative;   
+   } 
+    
+  .alert {
+    top:130;
+    right: 50%;
+  }
+}
