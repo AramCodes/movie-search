@@ -10,7 +10,7 @@ function findSearch() {
 
 function getMovies(searchParameter) {
 
-    const url = `http://www.omdbapi.com/?apikey=8e736192&s=${encodeURIComponent(searchParameter)}`;
+    const url = `https://www.omdbapi.com/?apikey=8e736192&s=${encodeURIComponent(searchParameter)}`;
 
     fetch(url)
     .then(res => res.json())
