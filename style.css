@@ -322,7 +322,7 @@ i {
    } 
     
   .alert {
-    top:130;
-    right: 50%;
+    top:130px;
+    left: 35px;
   }
 }
