@@ -13,13 +13,16 @@ body {
 }
 
 .container {
-    max-width: 650px;
-    min-height: 780px;
+    user-select: none;
+    max-width: 550px;
+    min-height: 1080px;
+    max-height: 1355px;
     background: #121212;
+    overflow: hidden;
 }
 
 .hero {
-    width: 650px;
+    width: 550px;
     height: 208px;
     background: url(./images/hero.jpg),lightgray 0px -158.291px / 100% 423.007% no-repeat;
     display: flex;

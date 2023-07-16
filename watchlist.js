@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     let moviesDisplay = document.getElementById("listContainer");
-    let message = document.getElementById("center");
+    let message = document.querySelector(".center");
     let watchlist = getWatchlistFromStorage();
   
     if (watchlist.length > 0) {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(res => res.json())
         .then(data => {
           moviesDisplay.innerHTML += `
-        <div class="card">
+        <div class="card" id="movie-data" data-movie-id="${movieId}">
             <img src="${data.Poster}" alt="movie-thumbnail" class="card-thumbnail">
 
             <div class="card-details">
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p class="movie-runtime">${data.Runtime}</p>
                     <p class="movie-genre">${data.Genre}</p>
                     <p class="add-watchlist">
-                        <i class="fa-solid fa-circle-plus white btns"></i>
+                        <i class="fa-solid fa-circle-minus white btns" id="remove-icon"></i>
                       Watchlist
                     </p>
                 </div>
@@ -51,6 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
       return watchlistData ? JSON.parse(watchlistData) : [];
     }
   
+    //check remove feature
+
     moviesDisplay.addEventListener("click", function (event) {
       if (event.target.id === "remove-icon") {
         const movieData = event.target.closest("#movie-data");

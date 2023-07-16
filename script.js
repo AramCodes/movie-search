@@ -33,7 +33,7 @@ function movieCollection(movieId) {
         .then(res => res.json())
         .then(data => {
             listContainer.innerHTML += `             
-            <div class="card">
+            <div class="card" id="movie-data" data-movie-id="${movieId}">
             <img src="${data.Poster}" alt="movie-thumbnail" class="card-thumbnail">
 
             <div class="card-details">
@@ -64,11 +64,9 @@ function movieCollection(movieId) {
         });
 }
 
-//check
-
 listContainer.addEventListener("click", function (event) {
     if (event.target.classList.contains("fa-circle-plus")) {
-        const movieData = event.target.closest("card-details"); 
+        const movieData = event.target.closest("#movie-data"); 
         const movieId = movieData.dataset.movieId;
         addToWatchlist(movieId);
     }
