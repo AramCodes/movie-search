@@ -14,7 +14,7 @@ body {
 
 .container {
     max-width: 650px;
-    height: 779px;
+    min-height: 780px;
     background: #121212;
 }
 
@@ -47,28 +47,32 @@ body {
 }
 
 .box {
-    width: 400px;
+    width: 420px;
     height: 40px;
     display: flex;
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 10px 0;
+    padding-left: 20px;
     background: #2E2E2F;
     border-radius: 40px;
+    justify-content: space-between;
     align-items: center;
     margin: -15px auto;
 }
 
 .box:hover input {
-    width: 400px;
+    width: 420px;
 }
 
 .box input {
-    width: 0;
+    width: 420px;
     outline: none;
     border: none;
+    font-size: 16px;
     font-weight: 500;
     transition: .08s;
     background: transparent;
+    color: #fff;
 }
 
 .box a {
