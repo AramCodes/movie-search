@@ -111,4 +111,4 @@ function closeMsg() {
 
 closeBtn.addEventListener("click", closeMsg);
 
-
+//closeBtn may collide with another js file
